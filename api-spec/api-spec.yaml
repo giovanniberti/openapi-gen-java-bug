@@ -1,0 +1,43 @@
+openapi: 3.0.0
+info:
+  version: 0.1.0
+  title: OpenAPI Java/Spring generator validation bug example
+  description: ...
+paths:
+  /foo:
+    post:
+      operationId: createFoo
+      summary: Create a Foo
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              nullable: false
+              description: Request body for creating a new Foo
+              properties:
+                bar:
+                  description: Foo
+                  type: integer
+                  nullable: false
+              required:
+                - bar
+              example:
+                bar: 1
+      responses:
+        '200':
+          description: Successful creation of Foo
+          content:
+            application/json:
+              schema:
+                type: object
+                description: Foo response
+                properties:
+                  bar:
+                    type: integer
+                    nullable: false
+                required:
+                  - bar
+                example:
+                  bar: 1
